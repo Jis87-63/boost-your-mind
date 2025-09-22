@@ -59,22 +59,22 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       
-      <main className="py-20">
+      <main className="py-16 bg-background-secondary">
         <div className="container mx-auto container-padding">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
               Nossos E-books Exclusivos
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Escolha o manual perfeito para transformar sua vida pessoal e profissional
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Escolha o manual perfeito para transformar sua vida
             </p>
           </div>
           
-          <div className="product-grid">
+          <div className="products-grid">
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className="animate-fade-in"
+                className="animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <ProductCard

@@ -20,6 +20,7 @@ export default {
         background: {
           DEFAULT: "hsl(var(--background))",
           secondary: "hsl(var(--background-secondary))",
+          tertiary: "hsl(var(--background-tertiary))",
         },
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -53,7 +54,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-          shadow: "hsl(var(--card-shadow))",
+          border: "hsl(var(--card-border))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

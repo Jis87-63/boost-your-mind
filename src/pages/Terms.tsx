@@ -2,6 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Terms = () => {
   const navigate = useNavigate();
@@ -9,25 +10,29 @@ const Terms = () => {
   return (
     <div className="min-h-screen bg-background py-8">
       <div className="container mx-auto container-padding max-w-4xl">
-        <div className="mb-8">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Voltar à Loja
-          </Button>
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate('/')}
+              className="mb-4"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar à Loja
+            </Button>
+            
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+              Termos e Condições
+            </h1>
+            <p className="text-muted-foreground">
+              Última atualização: {new Date().toLocaleDateString('pt-BR')}
+            </p>
+          </div>
           
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Termos e Condições
-          </h1>
-          <p className="text-muted-foreground">
-            Última atualização: {new Date().toLocaleDateString('pt-BR')}
-          </p>
+          <ThemeToggle />
         </div>
 
-        <Card className="card-gradient p-8">
+        <Card className="bg-card border-card-border shadow-card p-8">
           <div className="space-y-8 prose prose-gray max-w-none">
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Aceitação dos Termos</h2>

@@ -2,6 +2,7 @@ import { ArrowLeft, Clock, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Refund = () => {
   const navigate = useNavigate();
@@ -9,26 +10,30 @@ const Refund = () => {
   return (
     <div className="min-h-screen bg-background py-8">
       <div className="container mx-auto container-padding max-w-4xl">
-        <div className="mb-8">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Voltar à Loja
-          </Button>
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate('/')}
+              className="mb-4"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar à Loja
+            </Button>
+            
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+              Política de Reembolso
+            </h1>
+            <p className="text-muted-foreground">
+              Sua satisfação é nossa prioridade
+            </p>
+          </div>
           
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Política de Reembolso
-          </h1>
-          <p className="text-muted-foreground">
-            Sua satisfação é nossa prioridade
-          </p>
+          <ThemeToggle />
         </div>
 
         <div className="grid gap-8">
-          <Card className="card-gradient p-8">
+          <Card className="bg-card border-card-border shadow-card p-8">
             <div className="flex items-center mb-6">
               <Clock className="w-8 h-8 text-accent-success mr-3" />
               <div>
@@ -52,7 +57,7 @@ const Refund = () => {
           </Card>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="card-gradient p-6">
+            <Card className="bg-card border-card-border shadow-card p-6">
               <div className="flex items-center mb-4">
                 <CheckCircle className="w-6 h-6 text-accent-success mr-2" />
                 <h3 className="text-xl font-semibold">Casos Elegíveis</h3>
@@ -77,7 +82,7 @@ const Refund = () => {
               </ul>
             </Card>
 
-            <Card className="card-gradient p-6">
+            <Card className="bg-card border-card-border shadow-card p-6">
               <div className="flex items-center mb-4">
                 <XCircle className="w-6 h-6 text-accent-error mr-2" />
                 <h3 className="text-xl font-semibold">Após 24 Horas</h3>
@@ -99,7 +104,7 @@ const Refund = () => {
             </Card>
           </div>
 
-          <Card className="card-gradient p-8">
+          <Card className="bg-card border-card-border shadow-card p-8">
             <h2 className="text-2xl font-semibold mb-6">Como Solicitar Reembolso</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
@@ -135,7 +140,7 @@ const Refund = () => {
             </div>
           </Card>
 
-          <Card className="card-gradient p-6 bg-accent/50">
+          <Card className="bg-accent/50 border-card-border shadow-card p-6">
             <h3 className="text-xl font-semibold mb-4">Informações de Contato para Reembolso</h3>
             <div className="space-y-3">
               <div className="flex items-center">
