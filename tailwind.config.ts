@@ -17,10 +17,14 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          secondary: "hsl(var(--background-secondary))",
+        },
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -38,6 +42,9 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          success: "hsl(var(--accent-success))",
+          warning: "hsl(var(--accent-warning))",
+          error: "hsl(var(--accent-error))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -46,6 +53,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          shadow: "hsl(var(--card-shadow))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
