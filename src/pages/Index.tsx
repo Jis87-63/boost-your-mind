@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
+import Cart from "@/components/Cart";
 import { toast } from "@/hooks/use-toast";
 
 // Import product images
@@ -38,20 +39,84 @@ const products = [
     salePrice: "275.00MT",
     image: hundredKImage,
   },
+  {
+    id: "crypto",
+    title: "Manual de Investimento em Criptomoedas",
+    originalPrice: "600.00MT",
+    salePrice: "200.00MT",
+    image: lawsOfPowerImage, // Temporary image
+  },
+  {
+    id: "forex",
+    title: "Guia Completo de Trading Forex",
+    originalPrice: "800.00MT",
+    salePrice: "350.00MT",
+    image: dietManualImage, // Temporary image
+  },
+  {
+    id: "dropshipping",
+    title: "Manual de Dropshipping do Zero ao Lucro",
+    originalPrice: "450.00MT",
+    salePrice: "180.00MT",
+    image: socialMediaImage, // Temporary image
+  },
+  {
+    id: "affiliate",
+    title: "Marketing de Afiliados - Estratégias Avançadas",
+    originalPrice: "400.00MT",
+    salePrice: "160.00MT",
+    image: hundredKImage, // Temporary image
+  },
+  {
+    id: "instagram",
+    title: "Instagram para Negócios - Monetização Total",
+    originalPrice: "350.00MT",
+    salePrice: "140.00MT",
+    image: lawsOfPowerImage, // Temporary image
+  },
+  {
+    id: "youtube",
+    title: "YouTube Creator - Do Zero aos Primeiros Mil Euros",
+    originalPrice: "500.00MT",
+    salePrice: "220.00MT",
+    image: dietManualImage, // Temporary image
+  },
 ];
 
 const Index = () => {
-  const handlePurchase = (productTitle: string) => {
-    const message = `Olá, gostaria de fazer a compra do e-book "${productTitle}". Ainda está disponível?`;
-    const whatsappUrl = `https://wa.me/258865157729?text=${encodeURIComponent(message)}`;
+  const generateOrderId = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = '';
+    for (let i = 0; i < 10; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
+
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Bom dia';
+    if (hour < 18) return 'Boa tarde';
+    return 'Boa noite';
+  };
+
+  const handlePurchase = (product: typeof products[0]) => {
+    const greeting = getGreeting();
+    const orderId = generateOrderId();
+    const message = `Olá ${greeting}, gostaria de adquirir o Ebook "${product.title}". 
+
+ID: ${orderId}
+Valor do produto: ${product.salePrice}
+
+Ainda está disponível?`;
     
-    // Show success toast
+    const whatsappUrl = `https://wa.me/258871009140?text=${encodeURIComponent(message)}`;
+    
     toast({
       title: "Redirecionando...",
       description: "Você será direcionado para o WhatsApp para finalizar a compra.",
     });
     
-    // Open WhatsApp
     window.open(whatsappUrl, '_blank');
   };
 
@@ -59,14 +124,19 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       
-      <main className="py-16 bg-background-secondary">
-        <div className="container mx-auto container-padding">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              Nossos E-books Exclusivos
+      {/* Floating Cart */}
+      <div className="fixed top-4 right-4 z-50">
+        <Cart />
+      </div>
+      
+      <main className="py-8 bg-background-secondary">
+        <div className="container mx-auto px-2 sm:px-4">
+          <div className="text-center mb-8 animate-fade-in">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">
+              E-books Exclusivos
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Escolha o manual perfeito para transformar sua vida
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+              Transforme sua vida com nossos manuais
             </p>
           </div>
           
@@ -74,15 +144,16 @@ const Index = () => {
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className="animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bounce-in"
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <ProductCard
+                  id={product.id}
                   title={product.title}
                   originalPrice={product.originalPrice}
                   salePrice={product.salePrice}
                   image={product.image}
-                  onPurchase={() => handlePurchase(product.title)}
+                  onPurchase={() => handlePurchase(product)}
                 />
               </div>
             ))}

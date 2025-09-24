@@ -227,23 +227,83 @@
   /* Product Grid - Compact Layout */
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
     margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
   }
 
   @media (min-width: 768px) {
     .products-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
   }
 
   @media (min-width: 1024px) {
     .products-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
     }
+  }
+
+  @media (min-width: 1280px) {
+    .products-grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.2rem;
+    }
+  }
+
+  /* Bouncy Animations */
+  .bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulseGlow {
+    from {
+      box-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary)), 0 0 15px hsl(var(--primary));
+    }
+    to {
+      box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary));
+    }
+  }
+
+  /* Cart Badge Animation */
+  .cart-bounce {
+    animation: cartBounce 0.3s ease-in-out;
+  }
+
+  @keyframes cartBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
   }
 }

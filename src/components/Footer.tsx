@@ -31,6 +31,15 @@ const Footer = () => {
                 <MessageCircle className="w-4 h-4" />
                 <span>@EllonMuskDev</span>
               </a>
+              <a 
+                href="https://wa.me/258871009140" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>+258 871 009 140</span>
+              </a>
             </div>
           </div>
           
