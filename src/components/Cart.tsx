@@ -3,7 +3,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ShoppingCart, Plus, Minus, Trash2 } from 'lucide-react';
-import { useCart } from '@/hooks/useCart';
+import { useCart } from '@/context/CartContext';
 
 const Cart = () => {
   const { 
