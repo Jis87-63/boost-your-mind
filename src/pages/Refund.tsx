@@ -145,8 +145,8 @@ const Refund = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <span className="font-medium mr-2">📱 WhatsApp:</span>
-                <a href="https://wa.me/258865157729" className="text-primary hover:underline">
-                  +258 86 515 7729
+                <a href="https://wa.me/258871009140" className="text-primary hover:underline">
+                  +258 871 009 140
                 </a>
               </div>
               <div className="flex items-center">

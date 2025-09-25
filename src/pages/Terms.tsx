@@ -59,9 +59,9 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4">3. Pagamento e Preços</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Os preços são exibidos em Meticais (MT) e podem sofrer alterações sem aviso prévio. 
-                O pagamento é processado através do WhatsApp e confirmado manualmente. 
-                Após a confirmação, o produto será enviado automaticamente.
+                Os preços são exibidos em Meticais (MZN) e podem sofrer alterações sem aviso prévio. 
+                O pagamento é processado automaticamente via M-Pesa através da Gibrapay. 
+                Após a confirmação do pagamento, o produto será enviado automaticamente.
               </p>
             </section>
 
@@ -105,6 +105,7 @@ const Terms = () => {
                 Para dúvidas sobre estes termos, entre em contato:
               </p>
               <ul className="list-none space-y-2 text-muted-foreground mt-4">
+                <li>📱 WhatsApp: +258871009140</li>
                 <li>📧 Email: scorp742@gmail.com</li>
                 <li>💬 Telegram: @EllonMuskDev</li>
               </ul>
