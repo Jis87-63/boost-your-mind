@@ -18,12 +18,12 @@ const Landing = () => {
             
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Link to="/produtos">
+              <Link to="/loja">
                 <Button variant="outline" size="sm" className="hidden sm:flex">
                   Produtos
                 </Button>
               </Link>
-              <Link to="/produtos">
+              <Link to="/loja">
                 <Button size="sm" className="bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary">
                   Explorar
                 </Button>
@@ -54,7 +54,7 @@ const Landing = () => {
 
           {/* CTA Section */}
           <div className="space-y-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <Link to="/produtos">
+            <Link to="/loja">
               <Button 
                 size="lg" 
                 className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary text-primary-foreground shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"

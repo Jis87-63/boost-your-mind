@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import Landing from "./pages/Landing";
 import Index from "./pages/Index";
+import Payment from "./pages/Payment";
 import Terms from "./pages/Terms";
 import Refund from "./pages/Refund";
 import NotFound from "./pages/NotFound";
@@ -21,7 +22,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/produtos" element={<Index />} />
+            <Route path="/loja" element={<Index />} />
+            <Route path="/pagamento" element={<Payment />} />
             <Route path="/termos" element={<Terms />} />
             <Route path="/reembolso" element={<Refund />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

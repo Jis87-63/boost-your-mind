@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,6 +7,7 @@ import { ShoppingCart, Plus, Minus, Trash2 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { 
     cartItems, 
     isOpen, 
@@ -14,9 +16,20 @@ const Cart = () => {
     updateQuantity, 
     clearCart, 
     getTotalItems, 
-    getTotalPrice,
-    checkout 
+    getTotalPrice 
   } = useCart();
+
+  const handleCheckout = () => {
+    if (cartItems.length === 0) return;
+    
+    const paymentData = {
+      items: cartItems,
+      total: getTotalPrice()
+    };
+    
+    setIsOpen(false);
+    navigate('/pagamento', { state: paymentData });
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -115,7 +128,7 @@ const Cart = () => {
                 
                 <div className="space-y-2">
                   <Button 
-                    onClick={checkout}
+                    onClick={handleCheckout}
                     className="w-full bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary text-primary-foreground"
                   >
                     Finalizar Compra

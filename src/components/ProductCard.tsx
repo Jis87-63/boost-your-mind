@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useNavigate } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
@@ -15,6 +16,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ id, title, originalPrice, salePrice, image, onPurchase }: ProductCardProps) => {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     addToCart({ id, title, salePrice, image });
@@ -22,6 +24,15 @@ const ProductCard = ({ id, title, originalPrice, salePrice, image, onPurchase }:
       title: "Adicionado ao carrinho!",
       description: `${title} foi adicionado ao seu carrinho.`,
     });
+  };
+
+  const handleBuyNow = () => {
+    const priceValue = parseFloat(salePrice.replace('MT', '').replace(',', '.'));
+    const paymentData = {
+      items: [{ id, title, salePrice, image, quantity: 1 }],
+      total: priceValue
+    };
+    navigate('/pagamento', { state: paymentData });
   };
 
   return (
@@ -61,7 +72,7 @@ const ProductCard = ({ id, title, originalPrice, salePrice, image, onPurchase }:
             +
           </Button>
           <Button 
-            onClick={onPurchase}
+            onClick={handleBuyNow}
             size="sm"
             className="flex-[2] h-7 text-[10px] bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary text-primary-foreground pulse-glow"
           >

@@ -58,7 +58,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-6 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 E-books Store. Todos os direitos reservados.
+            © 2025 Fllops Digital Store. Licença: Ebooks-Mz-EBK-2025-R4N9-M2P8. Distribuição não autorizada é proibida.
           </p>
         </div>
       </div>
